@@ -4,14 +4,17 @@ In order to run this project the computer has to have Django and Python 3 pre-in
 
 There are three main folders: home, mysite, static. And some other files that are necessary for this program to run.
 
+
 First File is Home:
 	- This is the most important file because this file consists of other file that are critical for this program to properly run.
 	- There is a templates folder inside the home folder, which consists of all the front-end/some backend code that are connected for this program to function.
 	- There are other python files that are essential because my backend is in python. For example, admin side of the website uses python.
 
+
 Second File is Mysite:
 	- In this folder you will find many different things that comes with django and are important to create websites
 	- Inside this folder I have added some of my own code so that my website could function properly
+
 
 Third File is Static:
 	- This is where I have stored all my css and Js code and I have connected this file with my home file so that css/js could be applied to my website
