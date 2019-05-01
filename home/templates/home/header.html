@@ -1,0 +1,63 @@
+<head>
+
+
+  <!-- This is where I connect my css files to make my header look nice -->
+
+	{% load static %}
+	<link href = "{% static 'tinymce/css/prism.css' %}" rel = "stylesheet">
+
+	<!--<link href = "{% static 'home/css/materialize.min.css' %}" rel = "stylesheet"> -->
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  
+  
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper" style = "background-color: #3CC6E8">
+      <a href="/" class = "brand-logo"><img src = "https://i.ibb.co/tXk1pDm/logo.png" style="width:300px;height:65px;"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!--<ul id="nav-mobile" class="right hide-on-med-and-down" style="width:50px;height:600px;">-->
+        
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">Order</a></li>
+
+        {% if user.is_authenticated%}
+	      <li><a href="/account">{{user.username}}</a></li>
+	      <li><a href="/logout">Log-Out</a></li>
+        {%else%}
+       	  <li><a href="/register">Register</a></li>
+          <li><a href="/login">Log-In</a></li>
+        {%endif%}
+      </ul>
+    </div>
+  </nav>
+
+  {% if messages %}
+  	{% for message in messages %}
+  		{%if message.tags == 'error'%}
+  			<script> M.toast({html:"{{message}}", classes: 'red rounded', displayLength: 30000});</script>
+  		{%elif message.tags == 'success'%}
+  			<script> M.toast({html:"{{message}}", classes: 'green rounded', displayLength: 2000});</script>
+  		{%endif%}
+
+  	{% endfor%}
+
+  {% endif %}
+
+
+
+  <div class = "container">
+	  {% block content %}
+	  {% endblock %}
+  </div>
+
+</body>
+
+<script src = "{% static 'tinymce/js/prism.js' %}"></script>

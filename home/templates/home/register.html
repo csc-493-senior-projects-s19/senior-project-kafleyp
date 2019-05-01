@@ -1,0 +1,17 @@
+{% extends "home/header.html" %}
+
+{% block content %}
+	<form method = "POST">
+		{% csrf_token %}
+		{{form.as_p}}
+
+		<button class = "btn" style = "background-color: #BEBEBE" type = "submit"> Register </button>
+
+	</form>
+
+	If you are already registered please <a href = "http://127.0.0.1:8000/login"><strong>LogIn</strong></a> using your school credentials.  
+
+
+{% endblock %}
+
+

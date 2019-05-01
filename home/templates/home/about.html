@@ -1,0 +1,127 @@
+
+<!--This is where I have created my order section. This is where people will be able to order things from Tres Habaneros -->
+
+{% extends "home/header.html" %}
+
+{% block content %}
+
+	<!---<div>
+		<button type="button">Click Me!</button>
+	 {% for foo in food %}
+			<p>{{foo.food_title}}</p>
+		<button>
+			<p>{{foo.food_content|safe}}</p>
+			<p>{{foo.food_time}}</p>
+		</button>
+		<br></br>
+	 {% endfor%}
+	</div>-->
+<style>
+ #div1, #div2{
+  float: left;
+  width: 500px;
+  height: 350px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  position: left;
+}
+</style>
+
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+	<h1> Menu </h1>
+	<div class="row">
+		
+		<!-- Only draggable button so far, I will make other draggable when I figure out better way to do it -->
+
+		<h4 style="color:blue;">SELECT 1</h4>
+		<div class="col s12 m6 14"></div>
+			<div class="card-panel" id = "div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">Burrito : 310 Cl</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">3 Tacos [6" Flour or Corn]:270/120 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">Rice Bowl : 180 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">Taco Salad : 260 Cl</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">3Green Salad : 90 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">Quesadilla : 310 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px" draggable = "true" ondragstart = "drag(event)" id = "drag1">House Made Nachos : 140 CL</a>
+				
+			</div>
+			<div id = "div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+		<h4 style ="color:red;">PICK 1</h4>
+		<div class="col s6"></div>
+			<div class = "card-panel">
+				<a class="waves-effect waves-light btn" style="margin: 5px">Carne Asada : $6.49</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Grilled Chicken : $6.29</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Tex Mex Veggies : $6.09</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Ground Beef : $6.39</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Pork Carnitas : $6.29</a>
+		
+			</div>
+
+
+		<h4 style ="color:red;">ADD THESE</h4>
+		<div class="col s6"></div>
+			<div class = "card-panel">
+				<a class="waves-effect waves-light btn" style="margin: 5px">Fire Roasted Salsa : 10 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px"> Salsa Verde : 10 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Pico De Gallo :  5 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Chipotle Salsa : 10 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Diced Onions : 10 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Jalapeno : 5 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Chili Lime Dressino : 150 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Chilantro : 5 CL CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Diced Tomatoes : 5 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Shredded Lettuce : 5 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Habaneros : 10 CL</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Sour Cream Sauce : 30 CL</a>
+			</div>
+		
+		<h4 style ="color:red;">SIDES</h4>
+		<div class="col s6"></div>
+			<div class = "card-panel">
+				<a class="waves-effect waves-light btn" style="margin: 5px">Cilantro Rice : $1.09</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Sour Cream : $.59</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Guacamole : $1.69</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Double Protein : $2,29</a>
+				<a class="waves-effect waves-light btn" style="margin: 5px">Fountain Beverages : $0.00/$1.99/$2.09</a>
+		
+			</div>
+
+		<h4 style ="color:blue;">DESSERTS</h4>
+		<div class="col s6"></div>
+			<div class = "card-panel">
+				<a class="waves-effect waves-light btn" style="margin: 5px">Churros : $1.99</a>
+			</div>
+
+			<!--this is when admin adds food comes to the front-end -->
+
+		<h4 style ="color:blue;">SPECIAL FOOD</h4>
+		<div class = "col s6"></div>
+			<div class = "card-panel">
+			{% for foo in food %}
+				<p>{{foo.food_title}}, {{foo.food_time}}</p>
+				<a class = "waves-effect waves-light btn" style="margin: 5px">{{foo.food_content|safe}}</a>
+			{% endfor%}
+			</div>
+		
+	</div>
+
+{% endblock %}
+
+
